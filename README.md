@@ -5,6 +5,8 @@ Minimal example of a Vercel serverless API using TypeScript.
 Endpoints
 - `GET /api/hello` — health check
 - `POST /api/hello` — JSON body `{ "name": string }` responds with greeting
+- `GET /api/test` — test route health check
+- `POST /api/test` — JSON body `{ "value": any }` echoes `value` back
 
 Quick start
 
@@ -37,6 +39,19 @@ You can verify the health endpoint with:
 
 ```bash
 curl -sS https://serverless-func-9n0gqx0ih-bpaulses-projects.vercel.app/api/hello
+```
+
+Test route examples
+
+```bash
+# GET test route
+curl -sS https://serverless-func-9n0gqx0ih-bpaulses-projects.vercel.app/api/test
+
+# POST to test route (echo)
+curl -sS -X POST \
+	-H "Content-Type: application/json" \
+	-d '{"value": "hello"}' \
+	https://serverless-func-9n0gqx0ih-bpaulses-projects.vercel.app/api/test
 ```
 
 Deployment protection & bypass tokens
